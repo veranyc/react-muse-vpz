@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container, Header } from 'semantic-ui-react'
-// const getSetlistSearchUrl = 'https://api.setlist.fm/rest/0.1/artist/2aaf7396-6ab8-40f3-9776-a41c42c8e26b/setlists'
-// const getSetlistSearchUrl = 'https://api.setlist.fm/rest/0.1/search/setlists?'
+import EventList from '../events/EventList'
 
 export default class EventSearch extends React.Component{
   constructor(){
@@ -88,6 +87,7 @@ export default class EventSearch extends React.Component{
             />
           </form>
          </Container>
+         <EventList setlistResults={this.state.setlistResults}/>
        </div>
     )
    }
