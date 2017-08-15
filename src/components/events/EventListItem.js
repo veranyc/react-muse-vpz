@@ -4,14 +4,15 @@ import { Table, Button } from 'semantic-ui-react'
 
  class EventListItem extends React.Component {
    constructor(props) {
-     super(props);
-     this.state = {
-       selectedSetlist: ''
-     };
+     super()
+    //  this.state = {
+    //    selectedSetlist: ''
+    //  }
    }
 
    handleOnSubmit = (e) => {
      console.log("The select button was clicked")
+     // event route to be triggered, and pass this.props.id to it
      this.setState(({selectedSetlist: this.props.id}))
    }
 

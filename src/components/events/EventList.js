@@ -24,16 +24,16 @@ import EventListItem from './EventListItem'
     //   this.setState(({selectedSetlist: e.target.value}))
     // }
 
-    mappedSetlistItems = () => {
-      return this.state.setlistResults.map((event, index) => {
-        return <EventListItem
-            id={event['@id']}
-            venue={event.venue['@name']}
-            tour={event['@tour']}
-            date={event['@eventDate']}
-          />
-      })
-    }
+    mappedSetlistItems = () => (
+      this.state.setlistResults.map((event, index) => (
+        <EventListItem
+          id={event['@id']}
+          venue={event.venue['@name']}
+          tour={event['@tour']}
+          date={event['@eventDate']}
+        />
+      ))
+    )
 
     render() {
       console.log(this.state.selectedSetlist)
