@@ -83,7 +83,7 @@ export default class EventSearch extends React.Component{
             </label>
             <input
               type="submit"
-              value="Submit"
+              value="Search"
             />
           </form>
           <br></br>
@@ -95,8 +95,3 @@ export default class EventSearch extends React.Component{
     )
    }
  }
-
-
-
-
- 
