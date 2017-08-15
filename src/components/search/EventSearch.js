@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header, Divider} from 'semantic-ui-react'
 import EventList from '../events/EventList'
 
 export default class EventSearch extends React.Component{
@@ -86,8 +86,11 @@ export default class EventSearch extends React.Component{
               value="Submit"
             />
           </form>
+          <br></br>
+          <br></br>
+          <Divider />
+          <EventList setlistResults={this.state.setlistResults}/>
          </Container>
-         <EventList setlistResults={this.state.setlistResults}/>
        </div>
     )
    }
@@ -96,23 +99,4 @@ export default class EventSearch extends React.Component{
 
 
 
- // componentDidMount() {
- // fetch(getSetlistSearchUrl, {
- //     method: 'GET',
- //     headers: {
- //       "x-api-key": "31fb9db3-0d0f-493c-8b73-8b824360134f",
- //       'Accept': 'application/json'
- //     }
- // })
- //   .then(response => response.json())
- //   .then(responseData => {
- //     this.setState({setlistResults: responseData.setlists.setlist})
- //   })
- //   .catch(error => {
- //     console.log('Error in fetching data', error)
- //   })
- // }
-
- // formSetListSearchUrl = () => {
- //   return 'https://api.setlist.fm/rest/0.1/search/setlists?artistName=' + this.state.artistName
- // }
+ 
