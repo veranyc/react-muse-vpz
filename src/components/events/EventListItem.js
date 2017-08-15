@@ -10,18 +10,19 @@ import { Table, Button } from 'semantic-ui-react'
      };
    }
 
-   handleOnClick = (e) => {
-     this.setState(({selectedSetlist: this.props.key}))
+   handleOnSubmit = (e) => {
+     console.log("The select button was clicked")
+     this.setState(({selectedSetlist: this.props.id}))
    }
 
    render() {
      return (
        <div>
-         <Table.Row key={this.props.key}>
-           <Table.Cell>{this.props.event}</Table.Cell>
+         <Table.Row key={this.props.id}>
+           <Table.Cell>{this.props.date}</Table.Cell>
            <Table.Cell>{this.props.venue}</Table.Cell>
            <Table.Cell>{this.props.tour}</Table.Cell>
-           <Table.Cell><Button onClick={this.handleOnClick}>Select</Button></Table.Cell>
+           <Table.Cell><Button onSubmit={this.handleOnSubmit}>Select</Button></Table.Cell>
          </Table.Row>
        </div>
      );
