@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Grid, Image } from 'semantic-ui-react'
+import { Container, Header, Grid, Image, Button, Input} from 'semantic-ui-react'
 
 
 export default class Event extends React.Component{
@@ -38,7 +38,22 @@ export default class Event extends React.Component{
                 <br></br>
                 <Container>
                   <h2>Pictures</h2>
-                  <Image src='./stripesmeg.jpg' size='small' wrapped/>
+                  <Image src='http://www.dystopiandanceparty.com/wp-content/uploads/2015/09/whitestripesmasonictemp.jpg' size='small' wrapped spaced/>
+                  <Image src='http://www.concertlivewire.com/jpegs/concerts/stripes4.jpg' size='small' spaced/>
+                  <form>
+                    <div class="ui action input">
+                      <label for="event_pic">Upload a picture</label>
+                      <input type="file" id="event_pic" name="event_pic"
+                            accept=".jpg, .jpeg, .png"/>
+                      <button class="ui button">Submit</button>
+                    </div>
+                  </form>
+                </Container>
+                <br></br>
+                <br></br>
+                <Container>
+                  <h2>Coming Soon</h2>
+                  <p>Attach related tweets to your event.</p>
                 </Container>
               </Grid.Column>
            </Grid>

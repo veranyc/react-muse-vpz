@@ -39,10 +39,34 @@ export default class UserHome extends React.Component{
              </Table.Header>
              <Table.Body>
                <Table.Row>
-                 <Table.Cell>06/05/2017</Table.Cell>
-                 <Table.Cell>U2</Table.Cell>
-                 <Table.Cell>Barclay's Center</Table.Cell>
-                 <Table.Cell>Brooklyn, NY</Table.Cell>
+                 <Table.Cell>04/07/2017</Table.Cell>
+                 <Table.Cell>LCD Soundsystem</Table.Cell>
+                 <Table.Cell>Brooklyn Steel</Table.Cell>
+                 <Table.Cell>Brooklyn</Table.Cell>
+               </Table.Row>
+               <Table.Row>
+                 <Table.Cell>02/05/2015</Table.Cell>
+                 <Table.Cell>Bjork</Table.Cell>
+                 <Table.Cell>New York City Center</Table.Cell>
+                 <Table.Cell>New York</Table.Cell>
+               </Table.Row>
+               <Table.Row>
+                 <Table.Cell>06/27/2014</Table.Cell>
+                 <Table.Cell>Beck</Table.Cell>
+                 <Table.Cell>Sony Centre for Performing Arts</Table.Cell>
+                 <Table.Cell>Toronto</Table.Cell>
+               </Table.Row>
+               <Table.Row>
+                 <Table.Cell>10/04/2006</Table.Cell>
+                 <Table.Cell>Beastie Boys</Table.Cell>
+                 <Table.Cell>Hiro Ballroom</Table.Cell>
+                 <Table.Cell>New York</Table.Cell>
+               </Table.Row>
+               <Table.Row>
+                 <Table.Cell>02/05/2005</Table.Cell>
+                 <Table.Cell>The White Stripes</Table.Cell>
+                 <Table.Cell>Masonic Temple</Table.Cell>
+                 <Table.Cell>Detroit</Table.Cell>
                </Table.Row>
              </Table.Body>
            </Table>
