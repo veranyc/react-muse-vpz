@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Image, Menu } from 'semantic-ui-react'
+import { Container, Image, Menu, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
@@ -8,9 +8,10 @@ const FixedMenuLayout = () =>
     <Menu fixed='top' inverted>
       <Container>
         <Menu.Item as='a' header>
+          {/* <i class="user circle outline" ></i> */}
           <Image
             size='mini'
-            src='/logo.png'
+            src='https://s3.us-east-2.amazonaws.com/eventphotosvpz/flat-cycles-1299936_1280.png'
             style={{ marginRight: '1.5em' }}
           />
           Vera's Final Project
