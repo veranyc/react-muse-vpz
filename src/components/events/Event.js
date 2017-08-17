@@ -1,8 +1,14 @@
 import React from 'react'
-import { Container, Header, Grid, Image, Button, Input} from 'semantic-ui-react'
+import { Container, Header, Grid, Image, Button} from 'semantic-ui-react'
+// const searchSetlistURL = "https://api.setlist.fm/rest/1.0/setlist" + this.props.id
+
 
 
 export default class Event extends React.Component{
+
+  componentDidMount = () => {
+
+  }
 
   render(){
      return(

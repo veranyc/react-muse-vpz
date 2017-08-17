@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Image, Menu, Icon } from 'semantic-ui-react'
+import { Container, Image, Menu} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
@@ -19,7 +19,7 @@ const FixedMenuLayout = () =>
         <Menu.Item as='a'><Link to="/">Home</Link></Menu.Item>
         {/* <Menu.Item as='a'><Link to="/user/profile/1">Profile</Link></Menu.Item> */}
         <Menu.Item as='a'><Link to="/user/home">My Events</Link></Menu.Item>
-        <Menu.Item as='a'><Link to="/search/event">Search for Event</Link></Menu.Item>
+        <Menu.Item as='a'><Link to="/search/event">Search for New Event</Link></Menu.Item>
         <Menu.Item as='a'><Link to="/login">Login</Link></Menu.Item>
         <Menu.Item as='a'><Link to="/user/signup">Signup</Link></Menu.Item>
         {/* <Dropdown item simple text='Options'>
