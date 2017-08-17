@@ -17,7 +17,7 @@ const FixedMenuLayout = () =>
           Vera's Final Project
         </Menu.Item>
         <Menu.Item as='a'><Link to="/">Home</Link></Menu.Item>
-        <Menu.Item as='a'><Link to="/user/profile/1">Profile</Link></Menu.Item>
+        {/* <Menu.Item as='a'><Link to="/user/profile/1">Profile</Link></Menu.Item> */}
         <Menu.Item as='a'><Link to="/user/home">My Events</Link></Menu.Item>
         <Menu.Item as='a'><Link to="/search/event">Search for Event</Link></Menu.Item>
         <Menu.Item as='a'><Link to="/login">Login</Link></Menu.Item>

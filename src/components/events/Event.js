@@ -33,6 +33,8 @@ export default class Event extends React.Component{
                   <h2>Notes</h2>
                   <p>This was the last home show ever for our hometown band. The energy of the crowd as matched with the energy coming off the stage.
                   </p>
+                  <Button class="ui primary button">Edit</Button>
+                  <Button class="ui button">Remove</Button>
                 </Container>
                 <br></br>
                 <br></br>
@@ -40,14 +42,18 @@ export default class Event extends React.Component{
                   <h2>Pictures</h2>
                   <Image src='http://www.dystopiandanceparty.com/wp-content/uploads/2015/09/whitestripesmasonictemp.jpg' size='small' wrapped spaced/>
                   <Image src='http://www.concertlivewire.com/jpegs/concerts/stripes4.jpg' size='small' spaced/>
+                  <br></br>
+                  <br></br>
                   <form>
                     <div class="ui action input">
-                      <label for="event_pic">Upload a picture</label>
+                      <label for="event_pic">Upload Your Pictures</label>
                       <input type="file" id="event_pic" name="event_pic"
-                            accept=".jpg, .jpeg, .png"/>
-                      <button class="ui button">Submit</button>
+                            accept=".jpg, .jpeg, .png" value="Upload Photo"/>
+                      <br></br>
+                      <Button class="ui button primary">Submit</Button>
                     </div>
                   </form>
+                      <Button class="ui button primary">View Slideshow</Button>
                 </Container>
                 <br></br>
                 <br></br>

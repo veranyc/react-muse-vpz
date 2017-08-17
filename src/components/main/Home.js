@@ -5,7 +5,7 @@ import { Container, Header, Image} from 'semantic-ui-react'
 const Home = () => {
       return(
         <div>
-          <Image src='https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicMontageMedium1280x785.jpeg'/>
+          <Image src='https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicMontageLarge1920x1178.jpeg'/>
           <Container text style={{ marginTop: '7em' }}>
 
                <Header as='h1'>This is the Home Page</Header>
