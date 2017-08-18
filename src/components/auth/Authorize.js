@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default function (Component, headers, props) {
+export default function (Component, props) {
   class Authentication extends Component {
     static contextTypes = {
       router: PropTypes.object
@@ -20,7 +20,7 @@ export default function (Component, headers, props) {
     }
 
     render() {
-      return <Component {...props} />
+      return <Component {...this.props} />
     }
   }
 

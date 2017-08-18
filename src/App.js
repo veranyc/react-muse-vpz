@@ -4,7 +4,7 @@ import FixedMenuLayout from './components/main/FixedMenuComponent'
 import Home from './components/main/Home'
 import Login from './components/user/Login'
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 //Routes
 import SearchRouter from './routes/SearchRouter'
 import UserRouter from './routes/UserRouter'
@@ -12,49 +12,60 @@ import EventsRouter from './routes/EventsRouter'
 //Authentication
 import AuthAdapter from './components/auth/AuthAdapter'
 import Auth from './components/auth/Authorize'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
+// import createBrowserHistory from 'history/createBrowserHistory'
+
+// const history = createBrowserHistory()
 
 
 
 
 class App extends Component {
-  static contextTypes = {
-    router: PropTypes.object
-  }
 
   state = {
     auth: {
-      headers: AuthAdapter.headers
+      isLoggedIn: false,
+      user: ''
     }
   }
 
-  isLoggedIn = () => !!window.localStorage.jwt
 
-  onLogin(loginParams) {
+  onLogin(loginParams){
     AuthAdapter.login(loginParams)
-    .then( res => {
-      if (res.error ) {
-        console.log("do nothing")
-      } else {
-        console.log(res)
-        localStorage.setItem('jwt', res.jwt)
-        this.context.router.history.push('/user/home')
-      }
-    })
+      .then( res => {
+        //check for an error message
+        if( res.error ){
+          console.log("do nothing")
+        }else{
+          debugger
+          console.log(res)
+          localStorage.setItem('jwt', res.jwt)
+          this.setState({
+            auth:{
+              isLoggedIn: true,
+              user: res.username
+            }
+          })
+        }
+        //if error render login again
+        //else set the jwt token and forward user to /giphs
+      })
   }
-
-  handleLogout () {
+  handleLogout(){
     localStorage.clear()
-    this.context.router.history.push('/login')
-  }
+    this.setState({auth: {
+        isLoggedIn:false,
+        user: ''
+        }})
+      }
 
   render() {
     return (
       <Router>
       <div>
-        <FixedMenuLayout isLoggedIn={this.isLoggedIn}/>
+        <FixedMenuLayout onLogout={this.handleLogout.bind(this)}/>
         <Route exact path='/' component={Home} />
-        <Route exact path='/login' render={() => <Login onSendLogin={this.onLogin.bind(this)} isLoggedIn={this.isLoggedIn}/>}/>
+        <Route path='/login' render={() => this.state.auth.isLoggedIn ? <Redirect to='/user/home'/> : <Login onSendLogin={this.onLogin.bind(this)}/>} />
         <Route path='/user' component={UserRouter} />
         <Route path='/events' component={EventsRouter} />
         <Route path='/search' component={SearchRouter} />

@@ -21,6 +21,7 @@ export default class Login extends React.Component{
   }
 
   handleSubmit (e) {
+    console.log('onSubmit triggered')
     e.preventDefault()
     this.props.onSendLogin(this.state)
     this.setState({username: '', password: ''})
@@ -32,18 +33,16 @@ export default class Login extends React.Component{
        <div>
           <Container text style={{ marginTop: '7em' }}>
             <Header as='h1'>Login</Header>
-            {/* //if logged in, redirect to user home otherwise show the login form and allow them to login */}
-            {this.props.isLoggedIn() ? <Redirect to='/user/home'/> :
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
               <Form.Field>
                 <label>Username</label>
-                <input name='username' placeholder='' />
+                <input name='username' placeholder='' onChange={this.handleChange}/>
               </Form.Field>
               <Form.Field>
                 <label>Password</label>
-                <input name='password' placeholder='' />
+                <input type='password' name='password' placeholder='' onChange={this.handleChange}/>
               </Form.Field>
-              <Button type='submit' onSubmit={this.handleSubmit}>Submit</Button>
+              <Button type='submit'>Login</Button>
             </Form>
           }
           </Container>
