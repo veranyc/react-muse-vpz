@@ -59,7 +59,6 @@ export default class EventSearch extends React.Component{
 
 
   render(){
-    console.log(this.state.setlistResults)
      return(
        <div className="search-event-form">
          <Container text style={{ marginTop: '7em' }}>
