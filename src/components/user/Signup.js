@@ -2,12 +2,35 @@ import React from 'react'
 import { Container, Header, Form, Button} from 'semantic-ui-react'
 
 export default class UserSignup extends React.Component{
+  constructor(){
+   super()
+
+   this.state = {
+     username: '',
+     password: ''
+   }
+ }
 
   handleOnSubmit = (e) => {
     e.preventDefault()
-    //fetch > POST request to api/v1/create
-    //redirect user to their user home page
+    debugger
+    let user = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    let userURL = 'https://morning-brushlands-34721.herokuapp.com/api/v1/users'
+
+    fetch(userURL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({user})
+    })
+    .then(response => response.json())
+    .then(jsonObj => console.log(jsonObj))
   }
+
+    //redirect user to their user home page
+
 
   render(){
      return(
@@ -27,7 +50,7 @@ export default class UserSignup extends React.Component{
                  <label>Password Confirmation</label>
                  <input type="text" name="password_confirmation"/>
                </Form.Field>
-               <Button type='submit'>Sign Me Up!</Button>
+               <Button type='submit' onSubmit={this.handleOnSubmit}>Sign Me Up!</Button>
              </Form>
          </Container>
        </div>
