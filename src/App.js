@@ -11,7 +11,7 @@ import UserRouter from './routes/UserRouter'
 import EventsRouter from './routes/EventsRouter'
 //Authentication
 import AuthAdapter from './components/auth/AuthAdapter'
-import Auth from './components/auth/Authorize'
+// import Auth from './components/auth/Authorize'
 // import PropTypes from 'prop-types'
 // import createBrowserHistory from 'history/createBrowserHistory'
 

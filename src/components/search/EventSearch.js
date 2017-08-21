@@ -18,14 +18,8 @@ export default class EventSearch extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
-    //append API url with name of artist
+    //append API url with name of artist and city name
     let searchURL = 'https://api.setlist.fm/rest/0.1/search/setlists?artistName=' + this.state.artistName + '&cityName=' + this.state.cityName
-
-    //append API url with name of city, if provided
-    // if (this.state.cityName !== "") {
-    //   let searchURL = searchURL + '&cityName=' + this.state.cityName
-    // }
-    //store the search URL used in state
     this.setState({userSearchURL: searchURL})
 
     //make the API call

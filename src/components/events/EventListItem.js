@@ -1,14 +1,14 @@
 import React from 'react'
-import { Table, Button } from 'semantic-ui-react'
-import Event  from './Event'
+import { Table } from 'semantic-ui-react'
+import { Route, Redirect } from 'react-router-dom'
 
 
  class EventListItem extends React.Component {
    constructor(props) {
      super()
      this.state = {
-       selectedSetlist: ''
-
+       selectedSetlist: '',
+       renderEvent: false
      }
    }
 
@@ -23,6 +23,8 @@ import Event  from './Event'
      this.setState(({selectedSetlist: this.props.id}))
    }
 
+   // <NavLink to=`/events/${this.state.selectedSetlist}`>Select Event</NavLink>
+
    render() {
      return (
        <div>
@@ -31,10 +33,18 @@ import Event  from './Event'
            <Table.Cell>{this.props.date}</Table.Cell>
            <Table.Cell>{this.props.venue}</Table.Cell>
            <Table.Cell>{this.props.tour}</Table.Cell>
-           <Event setlistId={this.props.id} date={this.props.date} venue={this.props.venue} tour={this.props.tour}/>
-         {/* <Table.Cell><Button onSubmit={this.handleOnSubmit}>Select</Button></Table.Cell> */}
+           {/* <Table.Cell>
+              <NavLink to={`/events/${this.state.selectedSetlist}`}>Select Event</NavLink>
+          </Table.Cell> */}
          </Table.Row>
+        {this.state.selectedSetlist ?
+        <Route>
+          <Redirect from='/events' to={`/events/${this.state.selectedSetlist}`}/>
+        </Route> : null}
+
        </div>
+
+
      );
    }
  }
