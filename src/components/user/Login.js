@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Header, Button, Form } from 'semantic-ui-react'
-import { Redirect, NavLInk } from 'react-router-dom'
+
 
 export default class Login extends React.Component{
 
