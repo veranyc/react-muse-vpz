@@ -3,8 +3,7 @@ import { Container, Header, Grid, Image, Button} from 'semantic-ui-react'
 // const searchSetlistURL = "https://api.setlist.fm/rest/1.0/setlist" + this.props.id
 
 
-
-export default class Event extends React.Component{
+class Event extends React.Component{
 
   componentDidMount = () => {
 
@@ -74,3 +73,5 @@ export default class Event extends React.Component{
     )
    }
  }
+
+export default Event
