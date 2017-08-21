@@ -1,24 +1,81 @@
 import React from 'react'
 import { Container, Header, Grid, Image, Button} from 'semantic-ui-react'
-// const searchSetlistURL = "https://api.setlist.fm/rest/1.0/setlist" + this.props.id
+import PropTypes from 'prop-types'
+
+
 
 
 class Event extends React.Component{
+  static contextTypes = {
+    router: PropTypes.object
+  }
+  constructor() {
+    super();
+    this.state = {
+      setlist: null,
+      setlistData: null,
+      setlistDate: "",
+      setlistArtist: "",
+      setlistId: "",
+      setlistTour: "",
+      setlistVenue: "",
+      city: "",
+      state: "",
+      country: ""
+    };
+  }
 
-  componentDidMount = () => {
 
+  componentWillMount = () => {
+    const idUrl = this.context.router.history.location.pathname
+    const id = idUrl.split("/")[idUrl.split("/").length - 1]
+    const setlistURL = "https://api.setlist.fm/rest/0.1/setlist/" + id + '.json'
+    console.log(setlistURL)
+
+    fetch(setlistURL, {
+        method: 'GET',
+        headers: {
+          "x-api-key": "31fb9db3-0d0f-493c-8b73-8b824360134f",
+          'Accept': 'application/json'
+        }
+      })//end fetch
+      .then(response => response.json())
+      .then(responseData => {
+        console.log(responseData.setlist)
+        console.log(responseData.setlist['@eventDate'])
+        console.log(responseData.setlist.artist['@name'])
+        console.log(responseData.setlist['@id'])
+        console.log(responseData.setlist['@tour'])
+        console.log(responseData.setlist.sets.set)
+        this.setState({
+          setlistData: responseData.setlist,
+          setlist: responseData.setlist.sets.set,
+          setlistId: id,
+          setlistDate: responseData.setlist['@eventDate'],
+          setlistArtist: responseData.setlist.artist['@name'],
+          setlistTour: responseData.setlist['@tour'],
+          setlistVenue: responseData.setlist.venue['@name'],
+          city: responseData.setlist.venue.city['@name'],
+          state: responseData.setlist.venue.city['@state'],
+          country: responseData.setlist.venue.city.country['@name']
+        })
+      })
+      .catch(error => {
+        console.log('Error in fetching data')
+      })
   }
 
   render(){
      return(
        <div>
          <Container text style={{ marginTop: '7em' }}>
-           <Header as='h1'>The White Stripes</Header>
+           <Header as='h1'>{this.state.setlistArtist}</Header>
            <Grid celled divided="vertically">
              <Grid.Column width={8}>
-               <h4>February 2, 2005</h4>
-               <h4>Venue:  Masonic Temple Theatre</h4>
-               <h4>Tour:  Get Behind Me Satan</h4>
+               <h4>{this.state.setlistDate}</h4>
+               <h4>Venue:  {this.state.setlistVenue}</h4>
+               <h4>City:  {this.state.city}, {this.state.state}</h4>
+               <h4>Country: {this.state.country}</h4>
                <ul>
                  Songs:
                  <li>Dead Leaves and the Dirty Ground</li>
@@ -32,6 +89,7 @@ class Event extends React.Component{
                  <li>Cannon</li>
                  <li>John the Revelator</li>
              </ul>
+              <h4>Tour:  {this.state.setlistTour}</h4>
              </Grid.Column>
              <Grid.Column width={8}>
                 <Container>
