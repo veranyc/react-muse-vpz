@@ -11,7 +11,6 @@ class FixedMenuLayout extends React.Component {
       <Menu fixed='top' inverted>
         <Container>
           <Menu.Item as='a' header>
-            {/* <i class="user circle outline" ></i> */}
             <Image
               size='mini'
               src='https://s3.us-east-2.amazonaws.com/eventphotosvpz/flat-cycles-1299936_1280.png'
@@ -23,8 +22,9 @@ class FixedMenuLayout extends React.Component {
           <Menu.Item as='a'><Link to="/user/home">My Events</Link></Menu.Item>
           <Menu.Item as='a'><Link to="/search/event">Search for New Event</Link></Menu.Item>
           <Menu.Item as='a'><Link to="/login">Login</Link></Menu.Item>
+          <Menu.Item as='a'><Link to="/logout">Logout</Link></Menu.Item>
           {/* <Menu.Item onClick={this.props.handleLogout()} as='a'><Link to="/">Logout</Link></Menu.Item> */}
-          <Menu.Item as='a'><Link to="/user/signup">Signup</Link></Menu.Item>
+          <Menu.Item as='a'><Link to="/signup">Signup</Link></Menu.Item>
         </Container>
       </Menu>
     </div>
