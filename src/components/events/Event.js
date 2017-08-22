@@ -121,8 +121,3 @@ class Event extends React.Component{
  }
 
 export default Event
-
-// {this.state.selectedSetlist ?
-// <Route>
-//   <Redirect from='/events' to={`/events/${this.state.selectedSetlist}`}/>
-// </Route> : null}

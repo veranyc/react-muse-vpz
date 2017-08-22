@@ -11,6 +11,7 @@
    render() {
      return (
        <div>
+         <li>{this.props.name}</li>
        </div>
      );
    }

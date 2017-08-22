@@ -5,48 +5,41 @@
    constructor(props) {
      super(props);
      this.state = {
-       setlist: {},
+       setlist: [],
        setlistId: ""
      };
    }
 
    componentWillReceiveProps = (nextProps, mappedSongList) => {
    this.setState({
-     setlist: nextProps.setlist,
-    //  encore1: nextProps.setlist[1],
-    //  encore2: nextProps.setlist[2],
+     setlist: nextProps.setlist[0].song,
+     encore1: nextProps.setlist[1].song,
+    //  encore2: nextProps.setlist[2].song,
      setlistId: nextProps.id
      })
+    //  nextProps.setlist[2] ?
+    //   this.setState({
+    //     encore2: nextProps.setlist[2]
+    //     : null
+    //   })
 
-     this.mappedSongList()
    }
 
-  //  componentWillReceiveProps = (nextProps, mappedSongList) => {
-  //  this.setState({
-  //    setlist: nextProps.setlist[0].song,
-  //    encore1: nextProps.setlist[1]['@encore'],
-  //    encore2: nextProps.setlist[2]['@encore'],
-  //    setlistId: nextProps.id
-  //    })
-   //
-  //    this.mappedSongList()
-  //  }
 
-   mappedSongList = () => (
-     this.state.setlist.map((song, index) => (
-       <EventSong
-         name={song['@name']}
-         key={index}
-       />
-     ))
-   )
 
    render() {
      return (
        <div>
-         <p>This is the event song list</p>
          <ul>
-           {/* {this.mappedSongList()} */}
+           {this.state.setlist.length > 0 ?
+               this.state.setlist.map((song, index) => (
+                   <EventSong
+                     name={song['@name']}
+                     key={index}
+                   />
+                 ))
+               : null
+             }
          </ul>
        </div>
      );
@@ -54,8 +47,3 @@
  }
 
  export default EventSongList
-
-
- // this.state.setlist[0].song.map((song, index) => (
- // //   <li>{song['@name']}</li>
- // // ))
