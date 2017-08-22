@@ -10,7 +10,7 @@ const UserRouter = () => {
     <div>
       <Route path='/user/profile/:userID' component={UserProfile} />
       <Route exact path='/user/home' component={UserHome}/>
-      <Route exact path='/user/signup' component={UserSignup}/>
+      {/* <Route exact path='/user/signup' component={UserSignup}/> */}
     </div>
   )
 }

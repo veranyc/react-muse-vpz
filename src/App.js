@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import FixedMenuLayout from './components/main/FixedMenuComponent'
 import Home from './components/main/Home'
 import Login from './components/user/Login'
+import UserSignup from './components/user/Signup'
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 //Routes
@@ -21,35 +22,73 @@ import AuthAdapter from './components/auth/AuthAdapter'
 
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      auth: {
+        isLoggedIn: false,
+        user: ''
+      },
+      errors: ""
+    }
+  }
 
-  state = {
-    auth: {
-      isLoggedIn: false,
-      user: ''
+  componentDidMount = () => {
+    if(localStorage.getItem('jwt')){
+      this.setState({
+        auth:{
+          isLoggedIn: true,
+        }
+      })
     }
   }
 
 
-  onLogin(loginParams){
-    AuthAdapter.login(loginParams)
-      .then( res => {
-        //check for an error message
-        if( res.error ){
-          console.log("do nothing")
-        }else{
-          console.log(res)
-          localStorage.setItem('jwt', res.jwt)
-          this.setState({
-            auth:{
-              isLoggedIn: true,
-              user: res.username
-            }
-          })
-        }
-        //if error render login again
-        //else set the jwt token and forward user to /giphs
-      })
+  onLogin = (loginParams) => {
+  AuthAdapter.login(loginParams)
+    .then( res => {
+      //check for an error message
+      if( res.errors ){
+         this.setState({
+           errors: res.errors
+         })
+      }else{
+        localStorage.setItem('jwt', res.jwt)
+        this.setState({
+          auth:{
+            isLoggedIn: true,
+            user: res.username
+          }
+        })
+      }
+      //if error render login again
+      //else set the jwt token and forward user to /giphs
+    })
   }
+
+  onSignup = (signUpParams) => {
+  AuthAdapter.signUp(signUpParams)
+    .then( res => {
+      //check for an error message
+      if( res.errors ){
+        this.setState({
+          errors: res.errors
+        })
+      }else{
+        localStorage.setItem('jwt', res.jwt)
+        this.setState({
+          auth:{
+            isLoggedIn: true,
+            user: res.username
+          }
+        })
+      }
+      //if error render login again
+      //else set the jwt token and forward user to /giphs
+    })
+  }
+
+
   handleLogout(){
     localStorage.clear()
     this.setState({auth: {
@@ -62,9 +101,27 @@ class App extends Component {
     return (
       <Router>
       <div>
-        <FixedMenuLayout onLogout={this.handleLogout.bind(this)}/>
+        <FixedMenuLayout
+            isLoggedIn={this.state.auth.isLoggedIn}
+            onLogout={this.handleLogout.bind(this)}
+        />
+
         <Route exact path='/' component={Home} />
-        <Route path='/login' render={() => this.state.auth.isLoggedIn ? <Redirect to='/user/home'/> : <Login onSendLogin={this.onLogin.bind(this)}/>} />
+
+        <Route path='/login'
+          render={() => this.state.auth.isLoggedIn ?
+            <Redirect to='/user/home'/> : <Login onLogin={this.onLogin}/>} />
+
+        <Route path="/signup"
+          render={()=> this.state.auth.isLoggedIn ?
+            <Redirect to="/" /> : <UserSignup onSignUp={this.onSignup} errors={this.state.errors}/>} />
+
+        <Route path="/logout"
+          render={() => {
+            this.handleLogout()
+            return (<Redirect to="/"/>)
+            }} />
+
         <Route path='/user' component={UserRouter} />
         <Route path='/events' component={EventsRouter} />
         <Route path='/search' component={SearchRouter} />
