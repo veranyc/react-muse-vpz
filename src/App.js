@@ -37,7 +37,6 @@ class App extends Component {
         if( res.error ){
           console.log("do nothing")
         }else{
-          debugger
           console.log(res)
           localStorage.setItem('jwt', res.jwt)
           this.setState({

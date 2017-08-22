@@ -44,7 +44,6 @@ export default class Login extends React.Component{
               </Form.Field>
               <Button type='submit'>Login</Button>
             </Form>
-          }
           </Container>
        </div>
 

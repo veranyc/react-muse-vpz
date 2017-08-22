@@ -35,9 +35,10 @@ import { Route, Redirect } from 'react-router-dom'
            <Table.Cell>{this.props.tour}</Table.Cell>
          </Table.Row>
         {this.state.selectedSetlist ?
-        <Route>
-          <Redirect from='/events' to={`/events/${this.state.selectedSetlist}`}/>
-        </Route> : null}
+          <Route>
+            <Redirect from='/events' to={`/events/${this.state.selectedSetlist}`}/>
+          </Route> 
+        : null}
 
        </div>
 
