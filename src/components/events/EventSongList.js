@@ -13,15 +13,27 @@
    componentWillReceiveProps = (nextProps, mappedSongList) => {
    this.setState({
      setlist: nextProps.setlist,
+    //  encore1: nextProps.setlist[1],
+    //  encore2: nextProps.setlist[2],
      setlistId: nextProps.id
      })
 
      this.mappedSongList()
    }
 
+  //  componentWillReceiveProps = (nextProps, mappedSongList) => {
+  //  this.setState({
+  //    setlist: nextProps.setlist[0].song,
+  //    encore1: nextProps.setlist[1]['@encore'],
+  //    encore2: nextProps.setlist[2]['@encore'],
+  //    setlistId: nextProps.id
+  //    })
+   //
+  //    this.mappedSongList()
+  //  }
 
    mappedSongList = () => (
-     this.state.setlist[0].map((song, index) => (
+     this.state.setlist.map((song, index) => (
        <EventSong
          name={song['@name']}
          key={index}
@@ -34,7 +46,7 @@
        <div>
          <p>This is the event song list</p>
          <ul>
-
+           {/* {this.mappedSongList()} */}
          </ul>
        </div>
      );

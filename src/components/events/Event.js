@@ -64,7 +64,7 @@ class Event extends React.Component{
   render(){
      return(
        <div>
-         <Container text style={{ marginTop: '7em' }}>
+         <Container text style={{ marginTop: '8em' }}>
            <Header as='h1'>{this.state.setlistArtist}</Header>
            <Grid celled divided="vertically">
              <Grid.Column width={8}>
@@ -79,6 +79,7 @@ class Event extends React.Component{
               <h4>Tour:  {this.state.setlistTour}</h4>
              </Grid.Column>
              <Grid.Column width={8}>
+                <Button>Save My Event</Button>
                 <Container>
                   <h2>Notes</h2>
                   <p>This was the last home show ever for our hometown band. The energy of the crowd as matched with the energy coming off the stage.
@@ -120,3 +121,8 @@ class Event extends React.Component{
  }
 
 export default Event
+
+// {this.state.selectedSetlist ?
+// <Route>
+//   <Redirect from='/events' to={`/events/${this.state.selectedSetlist}`}/>
+// </Route> : null}
