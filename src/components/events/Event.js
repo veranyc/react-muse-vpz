@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Header, Grid, Image, Button} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
+import EventSongList from './EventSongList'
 
 
 
@@ -26,7 +27,7 @@ class Event extends React.Component{
   }
 
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     const idUrl = this.context.router.history.location.pathname
     const id = idUrl.split("/")[idUrl.split("/").length - 1]
     const setlistURL = "https://api.setlist.fm/rest/0.1/setlist/" + id + '.json'
@@ -41,12 +42,6 @@ class Event extends React.Component{
       })//end fetch
       .then(response => response.json())
       .then(responseData => {
-        console.log(responseData.setlist)
-        console.log(responseData.setlist['@eventDate'])
-        console.log(responseData.setlist.artist['@name'])
-        console.log(responseData.setlist['@id'])
-        console.log(responseData.setlist['@tour'])
-        console.log(responseData.setlist.sets.set)
         this.setState({
           setlistData: responseData.setlist,
           setlist: responseData.setlist.sets.set,
@@ -63,7 +58,8 @@ class Event extends React.Component{
       .catch(error => {
         console.log('Error in fetching data')
       })
-  }
+    }//end componentWillMount
+
 
   render(){
      return(
@@ -76,18 +72,9 @@ class Event extends React.Component{
                <h4>Venue:  {this.state.setlistVenue}</h4>
                <h4>City:  {this.state.city}, {this.state.state}</h4>
                <h4>Country: {this.state.country}</h4>
+               <h4>Songs:</h4>
                <ul>
-                 Songs:
-                 <li>Dead Leaves and the Dirty Ground</li>
-                 <li>Blue Orchid</li>
-                 <li>Hotel Yorba</li>
-                 <li>The Denial Twist</li>
-                 <li>Apple Blossom</li>
-                 <li>I Think I Smell a Rat</li>
-                 <li>Passive Manipulation</li>
-                 <li>Harrigan</li>
-                 <li>Cannon</li>
-                 <li>John the Revelator</li>
+                <EventSongList setlist={this.state.setlist} id={this.state.setlistId} />
              </ul>
               <h4>Tour:  {this.state.setlistTour}</h4>
              </Grid.Column>
