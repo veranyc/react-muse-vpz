@@ -33,9 +33,6 @@ import { Route, Redirect } from 'react-router-dom'
            <Table.Cell>{this.props.date}</Table.Cell>
            <Table.Cell>{this.props.venue}</Table.Cell>
            <Table.Cell>{this.props.tour}</Table.Cell>
-           {/* <Table.Cell>
-              <NavLink to={`/events/${this.state.selectedSetlist}`}>Select Event</NavLink>
-          </Table.Cell> */}
          </Table.Row>
         {this.state.selectedSetlist ?
         <Route>
