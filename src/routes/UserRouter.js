@@ -2,7 +2,7 @@ import React from 'react'
 import { Route} from 'react-router-dom'
 import UserHome from '../components/user/Home'
 import UserProfile from '../components/user/Profile'
-import UserSignup from '../components/user/Signup'
+// import UserSignup from '../components/user/Signup'
 
 
 const UserRouter = () => {

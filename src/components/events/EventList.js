@@ -37,7 +37,7 @@ import EventListItem from './EventListItem'
     )
 
     render() {
-      console.log(this.state.selectedSetlist)
+      // console.log(this.state.selectedSetlist)
       return (
         <div>
           <p>Your results will appear below. Please click on the concert you attended to start your memory page.</p>
