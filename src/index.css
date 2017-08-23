@@ -9,7 +9,7 @@ body {
     background-image: url('https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicMontageLarge1920x1178.jpeg');
 
     /* Set a specific height */
-    /*height: 500px; */
+    height: 1178px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed !important;
@@ -17,3 +17,14 @@ body {
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
+
+/*.parallax {
+    background-image: url('https://tau0.files.wordpress.com/2012/11/pano_ft_davis_road.jpg (2MB)
+
+');
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/

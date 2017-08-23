@@ -45,7 +45,13 @@ export default class UserSignup extends React.Component{
       return(
         <div className="background">
           <Container text style={{ marginTop: '7em' }}>
-            <Grid centered columns={3}>
+            <h2>Sign Up for an Account</h2>
+            <p>Register for an account on Muse and get started creating music memories.</p>
+            <br></br>
+            <Grid centered columns={2}>
+              {/* <Grid.Row textAlign='left'>
+                <h2>Sign Up</h2>
+              </Grid.Row> */}
               <Grid.Row>
               <Grid.Column>
                 <Form onSubmit={this.handleSubmit}>
@@ -61,7 +67,7 @@ export default class UserSignup extends React.Component{
                 </Form>
                 </Grid.Column>
                 <Grid.Column textAlign="center">
-                <Image src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Lake_Malawi_music_band.jpg" size="huge" centered={true}/>
+                <Image src="https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicLife640x392.jpg" size="huge" centered={true}/>
                 </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>

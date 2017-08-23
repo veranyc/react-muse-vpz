@@ -64,9 +64,9 @@ class Event extends React.Component{
   render(){
      return(
        <div>
-         <Container text style={{ marginTop: '8em' }}>
+         <Container style={{ marginTop: '8em' }}>
            <Header as='h1'>{this.state.setlistArtist}</Header>
-           <Grid celled divided="vertically">
+           <Grid fluid celled divided="vertically">
              <Grid.Column width={8}>
                <h4>{this.state.setlistDate}</h4>
                <h4>Venue:  {this.state.setlistVenue}</h4>
@@ -79,7 +79,7 @@ class Event extends React.Component{
               <h4>Tour:  {this.state.setlistTour}</h4>
              </Grid.Column>
              <Grid.Column width={8}>
-                <Button>Save My Event</Button>
+                <Button floated="right">Save My Event</Button>
                 <Container>
                   <h2>Notes</h2>
                   <p>This was the last home show ever for our hometown band. The energy of the crowd as matched with the energy coming off the stage.

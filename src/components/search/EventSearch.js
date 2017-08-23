@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Divider} from 'semantic-ui-react'
+import { Container, Header, Divider, Form, Button} from 'semantic-ui-react'
 import EventList from '../events/EventList'
 
 export default class EventSearch extends React.Component{
@@ -57,8 +57,23 @@ export default class EventSearch extends React.Component{
        <div className="search-event-form">
          <Container text style={{ marginTop: '7em' }}>
            <Header as='h1'>Search for an Event</Header>
-           <form onSubmit={this.handleSubmit}>
-           <label>
+           <Form onSubmit={this.handleSubmit}>
+             <Form.Field>
+               <label>Artist/Band Name:  </label>
+               <input type="text"
+                      value={this.state.artistName}
+                      onChange={this.handleChangeArtist}
+                />
+             </Form.Field>
+             <Form.Field>
+               <label>City:  </label>
+               <input type="text"
+                      value={this.state.cityName}
+                      onChange={this.handleChangeCity}
+                />
+             </Form.Field>
+             <Button  size='large' type='submit' primary={false} color="yellow">Search</Button>
+           {/* <label>
               Artist Name:
               <input
                 type="text"
@@ -73,12 +88,12 @@ export default class EventSearch extends React.Component{
                 value={this.state.cityName}
                 onChange={this.handleChangeCity}
               />
-            </label>
-            <input
+            </label> */}
+            {/* <input
               type="submit"
               value="Search"
-            />
-          </form>
+            /> */}
+          </Form>
           <br></br>
           <br></br>
           <Divider />

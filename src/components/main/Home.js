@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Header, Image} from 'semantic-ui-react'
 
 
+
 const Home = () => {
       return(
         <div>

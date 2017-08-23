@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Button, Form } from 'semantic-ui-react'
+import { Container, Header, Button, Form, Image } from 'semantic-ui-react'
 
 
 class Login extends React.Component{
@@ -45,8 +45,9 @@ class Login extends React.Component{
                 <label>Password</label>
                 <input type='password' name='password' placeholder='' onChange={this.handlePassword}/>
               </Form.Field>
-              <Button type='submit'>Login</Button>
+               <Button  size='large' type='submit' primary={false} color="yellow">Login</Button>
             </Form>
+            <Image src="https://s3.us-east-2.amazonaws.com/eventphotosvpz/MashallSpeaker640x392.jpeg" size="huge" centered={true}/>
           </Container>
        </div>
 
