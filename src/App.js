@@ -14,7 +14,7 @@ import EventsRouter from './routes/EventsRouter'
 import AuthAdapter from './components/auth/AuthAdapter'
 //User
 import UserEvent from './components/user/UserEvent'
-
+import { Helmet } from 'react-helmet'
 
 
 
@@ -102,6 +102,9 @@ class App extends Component {
     return (
       <Router>
       <div>
+        <Helmet>
+          <style>{'body { background-color: #F4EAD1; }'}</style>
+        </Helmet>
         <FixedMenuLayout
             isLoggedIn={this.state.auth.isLoggedIn}
             onLogout={this.handleLogout.bind(this)}
