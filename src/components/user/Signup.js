@@ -49,9 +49,6 @@ export default class UserSignup extends React.Component{
             <p>Register for an account on Muse and get started creating music memories.</p>
             <br></br>
             <Grid centered columns={2}>
-              {/* <Grid.Row textAlign='left'>
-                <h2>Sign Up</h2>
-              </Grid.Row> */}
               <Grid.Row>
               <Grid.Column>
                 <Form onSubmit={this.handleSubmit}>

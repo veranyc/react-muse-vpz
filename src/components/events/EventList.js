@@ -31,6 +31,7 @@ import EventListItem from './EventListItem'
           venue={event.venue['@name']}
           tour={event['@tour']}
           date={event['@eventDate']}
+          city={event.venue.city['@name']}
         />
       ))
     )
@@ -39,15 +40,15 @@ import EventListItem from './EventListItem'
       console.log(this.state.selectedSetlist)
       return (
         <div>
-          <p>Your results will appear below:</p>
-          <Table celled selectable>
-              <Table.Header>
-                <Table.Row>
+          <p>Your results will appear below. Please click on the concert you attended to start your memory page.</p>
+          <Table selectable>
+              <Table.Header fullWidth>
+                <Table.Row textAlign="left">
                   <Table.HeaderCell>Date</Table.HeaderCell>
                   <Table.HeaderCell>Venue</Table.HeaderCell>
-                  <Table.HeaderCell>Tour</Table.HeaderCell>
-                  <Table.HeaderCell> </Table.HeaderCell>
+                  <Table.HeaderCell>City</Table.HeaderCell>
                 </Table.Row>
+                <Table.Row></Table.Row>
               </Table.Header>
               <Table.Body >
                 {this.mappedSetlistItems()}

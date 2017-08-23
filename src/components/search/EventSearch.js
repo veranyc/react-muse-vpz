@@ -56,7 +56,8 @@ export default class EventSearch extends React.Component{
      return(
        <div className="search-event-form">
          <Container text style={{ marginTop: '7em' }}>
-           <Header as='h1'>Search for an Event</Header>
+           <Header as='h1'>Create A New Memory</Header>
+           <p>Please start by searching for the live music event using the following form</p>
            <Form onSubmit={this.handleSubmit}>
              <Form.Field>
                <label>Artist/Band Name:  </label>
@@ -73,26 +74,6 @@ export default class EventSearch extends React.Component{
                 />
              </Form.Field>
              <Button  size='large' type='submit' primary={false} color="yellow">Search</Button>
-           {/* <label>
-              Artist Name:
-              <input
-                type="text"
-                value={this.state.artistName}
-                onChange={this.handleChangeArtist}
-              />
-            </label>
-            <label>
-              City:
-              <input
-                type="text"
-                value={this.state.cityName}
-                onChange={this.handleChangeCity}
-              />
-            </label> */}
-            {/* <input
-              type="submit"
-              value="Search"
-            /> */}
           </Form>
           <br></br>
           <br></br>
