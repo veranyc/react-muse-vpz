@@ -7,7 +7,7 @@ import EventSearch from '../components/search/EventSearch'
 const SearchRouter = () => {
   return (
     <div>
-      <Route exact path='/search/artist' component={ArtistSearch} />
+      {/* <Route exact path='/search/artist' component={ArtistSearch} /> */}
       <Route exact path='/search/event' component={EventSearch}/>
     </div>
   )
