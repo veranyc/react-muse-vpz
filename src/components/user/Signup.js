@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Form, Button, Message, Grid, Image} from 'semantic-ui-react'
+import { Container, Form, Button, Message, Grid, Image} from 'semantic-ui-react'
 
 export default class UserSignup extends React.Component{
   constructor(props) {

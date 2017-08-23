@@ -9,12 +9,13 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 //Routes
 import SearchRouter from './routes/SearchRouter'
 import UserRouter from './routes/UserRouter'
-import EventsRouter from './routes/EventsRouter'
+
 //Authentication
 import AuthAdapter from './components/auth/AuthAdapter'
 //User
 import UserEvent from './components/user/UserEvent'
 import { Helmet } from 'react-helmet'
+import Event from './components/events/Event'
 
 
 
@@ -27,7 +28,8 @@ class App extends Component {
         user: '',
         user_id: ''
       },
-      errors: ""
+      errors: "",
+      hideEvent: true
     }
   }
 
@@ -103,7 +105,7 @@ class App extends Component {
       <Router>
       <div>
         <Helmet>
-          <style>{'body { background-color: #F4EAD1; }'}</style>
+          <style>{'body { background-color: #CCCCCC; }'}</style>
         </Helmet>
         <FixedMenuLayout
             isLoggedIn={this.state.auth.isLoggedIn}
@@ -130,8 +132,10 @@ class App extends Component {
 
         <Route path='/user/events/' auth={this.state.auth} component={UserEvent} />
 
+        <Route path='/events/:eventId' component={(props) => <Event props={props} user_id={this.state.auth.user_id}/>} />
+
         <Route path='/user' component={UserRouter} />
-        <Route path='/events' component={EventsRouter} />
+        {/* <Route path='/events' component={EventsRouter} /> */}
         <Route path='/search' component={SearchRouter} />
       </div>
       </Router>
