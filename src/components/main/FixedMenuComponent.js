@@ -10,21 +10,40 @@ class FixedMenuLayout extends React.Component {
     <div>
       <Menu fixed='top' inverted>
         <Container>
-          <Menu.Item as='a' header>
+          <Menu.Item header>
             <Image
               size='mini'
               src='https://s3.us-east-2.amazonaws.com/eventphotosvpz/flat-cycles-1299936_1280.png'
               style={{ marginRight: '1.5em' }}
             />
-            Vera's Final Project
+            Muse: Music Memories
           </Menu.Item>
           <Menu.Item as='a'><Link to="/">Home</Link></Menu.Item>
-          <Menu.Item as='a'><Link to="/user/home">My Events</Link></Menu.Item>
-          <Menu.Item as='a'><Link to="/search/event">Search for New Event</Link></Menu.Item>
+
+          {this.props.isLoggedIn ?
+          <Menu.Item as='a'><Link to="/user/home">My Memories</Link></Menu.Item>
+          : null}
+
+          {this.props.isLoggedIn ?
+          <Menu.Item as='a'><Link to="/search/event">Create a New Memory</Link></Menu.Item>
+          : null}
+
+          {!this.props.isLoggedIn ?
           <Menu.Item as='a'><Link to="/login">Login</Link></Menu.Item>
+          : null}
+
+          {this.props.isLoggedIn ?
           <Menu.Item as='a'><Link to="/logout">Logout</Link></Menu.Item>
-          {/* <Menu.Item onClick={this.props.handleLogout()} as='a'><Link to="/">Logout</Link></Menu.Item> */}
+          : null}
+
+          {!this.props.isLoggedIn ?
           <Menu.Item as='a'><Link to="/signup">Signup</Link></Menu.Item>
+          : null}
+
+          {this.props.isLoggedIn && this.props.username ?
+          <Menu.Item as='a'>Hello, {this.props.username}</Menu.Item>
+          : null}
+
         </Container>
       </Menu>
     </div>

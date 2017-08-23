@@ -1,4 +1,4 @@
-const localhost = 'http://localhost:3001/api/v1'
+const localhost = 'http://localhost:3000/api/v1'
 const heroku = 'https://morning-brushlands-34721.herokuapp.com/api/v1'
 let baseUrl = localhost
 

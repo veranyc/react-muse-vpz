@@ -12,11 +12,8 @@ import UserRouter from './routes/UserRouter'
 import EventsRouter from './routes/EventsRouter'
 //Authentication
 import AuthAdapter from './components/auth/AuthAdapter'
-// import Auth from './components/auth/Authorize'
-// import PropTypes from 'prop-types'
-// import createBrowserHistory from 'history/createBrowserHistory'
-
-// const history = createBrowserHistory()
+//User
+import UserEvent from './components/user/UserEvent'
 
 
 
@@ -27,7 +24,8 @@ class App extends Component {
     this.state = {
       auth: {
         isLoggedIn: false,
-        user: ''
+        user: '',
+        user_id: ''
       },
       errors: ""
     }
@@ -53,11 +51,13 @@ class App extends Component {
            errors: res.errors
          })
       }else{
+        console.log(res)
         localStorage.setItem('jwt', res.jwt)
         this.setState({
           auth:{
             isLoggedIn: true,
-            user: res.username
+            user: res.username,
+            user_id: res.user
           }
         })
       }
@@ -79,7 +79,8 @@ class App extends Component {
         this.setState({
           auth:{
             isLoggedIn: true,
-            user: res.username
+            user: res.username,
+            user_id: res.user
           }
         })
       }
@@ -104,6 +105,8 @@ class App extends Component {
         <FixedMenuLayout
             isLoggedIn={this.state.auth.isLoggedIn}
             onLogout={this.handleLogout.bind(this)}
+            username={this.state.auth.user}
+            user={this.state.auth.user_id}
         />
 
         <Route exact path='/' component={Home} />
@@ -121,6 +124,8 @@ class App extends Component {
             this.handleLogout()
             return (<Redirect to="/"/>)
             }} />
+
+        <Route path='/user/events/' auth={this.state.auth} component={UserEvent} />
 
         <Route path='/user' component={UserRouter} />
         <Route path='/events' component={EventsRouter} />

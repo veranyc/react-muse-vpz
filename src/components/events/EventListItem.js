@@ -29,15 +29,14 @@ import { Route, Redirect } from 'react-router-dom'
      return (
        <div>
          <Table.Row key={this.props.id} onClick={this.handleOnClick}>
-           <Table.Cell>{this.props.id}</Table.Cell>
            <Table.Cell>{this.props.date}</Table.Cell>
            <Table.Cell>{this.props.venue}</Table.Cell>
-           <Table.Cell>{this.props.tour}</Table.Cell>
+           <Table.Cell>{this.props.city}</Table.Cell>
          </Table.Row>
         {this.state.selectedSetlist ?
           <Route>
             <Redirect from='/events' to={`/events/${this.state.selectedSetlist}`}/>
-          </Route> 
+          </Route>
         : null}
 
        </div>
