@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Header, Image} from 'semantic-ui-react'
-import Helmet from 'react-helmet'
+// import Helmet from 'react-helmet'
 
 
 const Home = () => {

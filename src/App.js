@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 //Routes
 import SearchRouter from './routes/SearchRouter'
 import UserRouter from './routes/UserRouter'
-import EventsRouter from './routes/EventsRouter'
+
 //Authentication
 import AuthAdapter from './components/auth/AuthAdapter'
 //User

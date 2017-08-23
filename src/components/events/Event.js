@@ -1,7 +1,9 @@
 import React from 'react'
-import { Container, Header, Grid, Image, Button} from 'semantic-ui-react'
+import { Container, Header, Grid, Image, Button, Input} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import EventSongList from './EventSongList'
+import EventNote from './EventNote'
+
 
 
 
@@ -96,57 +98,63 @@ handleClick = (e) => {
 
   render(){
      return(
-       <div>
+       <div background-color='yellow'>
          <Container style={{ marginTop: '8em' }}>
            <Header as='h1'>{this.state.setlistArtist}</Header>
-           <Grid fluid celled divided="vertically">
-             <Grid.Column width={8}>
-               <h4>{this.state.setlistDate}</h4>
-               <h4>Venue:  {this.state.setlistVenue}</h4>
-               <h4>City:  {this.state.city}, {this.state.state}</h4>
-               <h4>Country: {this.state.country}</h4>
-               <h4>Songs:</h4>
-               <ul>
-                <EventSongList setlist={this.state.setlist} id={this.state.setlistId} />
-             </ul>
-              <h4>Tour:  {this.state.setlistTour}</h4>
-             </Grid.Column>
-             <Grid.Column width={8}>
-                <Button floated="right" onClick={this.handleClick}>Save My Event</Button>
-                <Container>
-                  <h2>Notes</h2>
-                  <p>This was the last home show ever for our hometown band. The energy of the crowd as matched with the energy coming off the stage.
-                  </p>
-                  <Button class="ui primary button">Edit</Button>
-                  <Button class="ui button">Remove</Button>
-                </Container>
-                <br></br>
-                <br></br>
-                <Container>
-                  <h2>Pictures</h2>
-                  <Image src='http://www.dystopiandanceparty.com/wp-content/uploads/2015/09/whitestripesmasonictemp.jpg' size='small' wrapped spaced/>
-                  <Image src='http://www.concertlivewire.com/jpegs/concerts/stripes4.jpg' size='small' spaced/>
+           <div>
+             <Grid fluid celled divided="vertically">
+               <Grid.Column width={8}>
+                 <h4>{this.state.setlistDate}</h4>
+                 <h4>Venue:  {this.state.setlistVenue}</h4>
+                 <h4>City:  {this.state.city}, {this.state.state}</h4>
+                 <h4>Country: {this.state.country}</h4>
+                 <h4>Songs:</h4>
+                 <ul>
+                  <EventSongList setlist={this.state.setlist} id={this.state.setlistId} />
+               </ul>
+                <h4>Tour:  {this.state.setlistTour}</h4>
+               </Grid.Column>
+               <Grid.Column width={8}>
+                  {/* <Button floated="right" onClick={this.handleClick}>Save My Event</Button> */}
+                  <Button fluid={true} loated="right" size='large' type='submit' onClick={this.handleClick} primary={false} color="yellow">Save My Event</Button>
                   <br></br>
                   <br></br>
-                  <form>
-                    <div class="ui action input">
-                      <label for="event_pic">Upload Your Pictures</label>
-                      <input type="file" id="event_pic" name="event_pic"
-                            accept=".jpg, .jpeg, .png" value="Upload Photo"/>
-                      <br></br>
-                      <Button class="ui button primary">Submit</Button>
-                    </div>
-                  </form>
-                      <Button class="ui button primary">View Slideshow</Button>
-                </Container>
-                <br></br>
-                <br></br>
-                <Container>
-                  <h2>Coming Soon</h2>
-                  <p>Attach related tweets to your event.</p>
-                </Container>
-              </Grid.Column>
-           </Grid>
+                    <EventNote event={this.state.eventId} setlistID={this.state.setlistId}/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                  <Container>
+                    <h2>Pictures</h2>
+                    <p>Include your pictures by providing their URLs here:</p>
+                    <Input type='textarea' />
+                    <Button class="ui primary button">Add Picture</Button>
+                    <br></br>
+                    <br></br>
+                    <Image src='http://www.dystopiandanceparty.com/wp-content/uploads/2015/09/whitestripesmasonictemp.jpg' size='small' wrapped spaced/>
+                    <Image src='http://www.concertlivewire.com/jpegs/concerts/stripes4.jpg' size='small' spaced/>
+                    <br></br>
+                    <br></br>
+                    <form>
+                      {/* <div class="ui action input"> */}
+                        {/* <label for="event_pic">Upload Your Pictures</label> */}
+                        {/* <input type="file" id="event_pic" name="event_pic" */}
+                              {/* accept=".jpg, .jpeg, .png" value="Upload Photo"/> */}
+                        {/* <br></br> */}
+                        {/* <Button class="ui button primary">Submit</Button> */}
+                      {/* </div> */}
+                    </form>
+                        <Button class="ui button primary">View Slideshow</Button>
+                  </Container>
+                  <br></br>
+                  <br></br>
+                  <Container>
+                    <h2>Coming Soon</h2>
+                    <p>Attach related tweets to your event.</p>
+                  </Container>
+                </Grid.Column>
+             </Grid>
+           </div>
          </Container>
        </div>
     )
@@ -154,3 +162,13 @@ handleClick = (e) => {
  }
 
 export default Event
+
+
+
+{/* <Container>
+  <h2>Notes</h2>
+  <p>This was the last home show ever for our hometown band. The energy of the crowd as matched with the energy coming off the stage.
+  </p>
+  <Button class="ui primary button">Edit</Button>
+  <Button class="ui button">Remove</Button>
+</Container> */}

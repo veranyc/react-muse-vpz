@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
-import ArtistSearch from '../components/search/ArtistSearch'
+// import ArtistSearch from '../components/search/ArtistSearch'
 import EventSearch from '../components/search/EventSearch'
 
 
