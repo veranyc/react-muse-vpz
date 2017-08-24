@@ -11,12 +11,14 @@
    }
 
    componentWillReceiveProps = (nextProps, mappedSongList) => {
-   this.setState({
-     setlist: nextProps.setlist[0].song,
-     encore1: nextProps.setlist[1].song,
-    //  encore2: nextProps.setlist[2].song,
-     setlistId: nextProps.id
-     })
+     this.state.setlist ?
+       this.setState({
+         setlist: nextProps.setlist[0].song,
+         encore1: nextProps.setlist[1].song,
+        //  encore2: nextProps.setlist[2].song,
+         setlistId: nextProps.id
+       })
+       : null
     //  nextProps.setlist[2] ?
     //   this.setState({
     //     encore2: nextProps.setlist[2]
@@ -38,7 +40,7 @@
                      key={index}
                    />
                  ))
-               : null
+               : <li>Sorry, we do not have songs for this event</li>
              }
          </ul>
        </div>
