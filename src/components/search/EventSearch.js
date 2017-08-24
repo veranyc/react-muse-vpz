@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Divider, Form, Button} from 'semantic-ui-react'
+import { Container, Header, Divider, Form, Button, Image, Grid} from 'semantic-ui-react'
 import EventList from '../events/EventList'
 
 export default class EventSearch extends React.Component{
@@ -56,25 +56,34 @@ export default class EventSearch extends React.Component{
      return(
        <div className="search-event-form">
          <Container text style={{ marginTop: '7em' }}>
-           <Header as='h1'>Create A New Memory</Header>
+           <Header as='h2'>Create A New Memory</Header>
            <p>Please start by searching for the live music event using the following form</p>
-           <Form onSubmit={this.handleSubmit}>
-             <Form.Field>
-               <label>Artist/Band Name:  </label>
-               <input type="text"
-                      value={this.state.artistName}
-                      onChange={this.handleChangeArtist}
-                />
-             </Form.Field>
-             <Form.Field>
-               <label>City:  </label>
-               <input type="text"
-                      value={this.state.cityName}
-                      onChange={this.handleChangeCity}
-                />
-             </Form.Field>
-             <Button  size='large' type='submit' primary={false} color="yellow">Search</Button>
-          </Form>
+           <Grid centered columns={2}>
+             <Grid.Row>
+             <Grid.Column>
+                 <Form onSubmit={this.handleSubmit}>
+                   <Form.Field>
+                     <label>Artist/Band Name:  </label>
+                     <input type="text"
+                            value={this.state.artistName}
+                            onChange={this.handleChangeArtist}
+                      />
+                   </Form.Field>
+                   <Form.Field>
+                     <label>City:  </label>
+                     <input type="text"
+                            value={this.state.cityName}
+                            onChange={this.handleChangeCity}
+                      />
+                   </Form.Field>
+                   <Button  fluid={true} size='large' type='submit' primary={false} color="yellow">Search</Button>
+                </Form>
+              </Grid.Column>
+              <Grid.Column textAlign="center">
+                <Image src='https://s3.us-east-2.amazonaws.com/eventphotosvpz/PlayedDrums650x392.jpeg' size='huge' centered={true}/>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
           <br></br>
           <br></br>
           <Divider />
