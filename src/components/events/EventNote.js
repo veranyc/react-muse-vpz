@@ -1,5 +1,5 @@
  import React from 'react'
- import { Container, Button, Input, Form } from 'semantic-ui-react'
+ import { Container, Button, Input, Form, TextArea } from 'semantic-ui-react'
 
  class EventNote extends React.Component {
    constructor(props) {
@@ -63,12 +63,12 @@
             {!this.state.noteSubmitted ?
            <Form onSubmit={this.handleSubmit}>
              <Form.Field>
-               <input name='notes' placeholder='Type in some thoughts on the show here:' onChange={this.handleTextChange}/>
+               <TextArea name='notes' placeholder='Type in some thoughts on the show here:' onChange={this.handleTextChange}/>
              </Form.Field>
-             <Button fluid={true} size='small' type='submit' primary={false} >Add Note</Button>
+             <Button fluid={true} size='small' type='submit' primary={false} color="yellow">Add Note</Button>
            </Form> : null}
            {this.state.noteSubmitted ?
-             <h4>{this.state.note}</h4> : null }
+             <p>{this.state.note}</p> : null }
            {/* <Input type='textarea' />
            <Button class="ui primary button">Add Note</Button> */}
          </Container>

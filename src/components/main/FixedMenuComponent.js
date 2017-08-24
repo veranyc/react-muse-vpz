@@ -10,13 +10,13 @@ class FixedMenuLayout extends React.Component {
     <div>
       <Menu fixed='top' inverted>
         <Container>
-          <Menu.Item header>
+          <Menu.Item position='left' header>
             <Image
               size='mini'
               src='https://s3.us-east-2.amazonaws.com/eventphotosvpz/flat-cycles-1299936_1280.png'
               style={{ marginRight: '1.5em' }}
             />
-            Muse: Music Memories
+            Muse
           </Menu.Item>
           <Menu.Item as='a'><Link to="/">Home</Link></Menu.Item>
 
@@ -42,6 +42,10 @@ class FixedMenuLayout extends React.Component {
 
           {this.props.isLoggedIn && this.props.username ?
           <Menu.Item as='a'>Hello, {this.props.username}</Menu.Item>
+          : null}
+
+          {!this.props.isLoggedIn ?
+          <Menu.Item header position='right'>Your space to keep all your music memories...</Menu.Item>
           : null}
 
         </Container>
