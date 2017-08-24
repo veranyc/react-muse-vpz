@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Grid, Image, Button, Input} from 'semantic-ui-react'
+import { Container, Header, Grid, Button, Table, Label} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import EventSongList from './EventSongList'
 import EventNote from './EventNote'
@@ -105,19 +105,56 @@ handleClick = (e) => {
      return(
        <div background-color='yellow'>
          <Container style={{ marginTop: '8em' }}>
-           <Header as='h1'>{this.state.setlistArtist}</Header>
+           <Header as='h1' size="xxlarge" dividing>{this.state.setlistArtist}</Header>
            <div>
              <Grid fluid celled divided="vertically">
                <Grid.Column width={8}>
-                 <h4>{this.state.setlistDate}</h4>
-                 <h4>Venue:  {this.state.setlistVenue}</h4>
-                 <h4>City:  {this.state.city}, {this.state.state}</h4>
-                 <h4>Country: {this.state.country}</h4>
-                 <h4>Songs:</h4>
-                 <ul>
-                  <EventSongList setlist={this.state.setlist} id={this.state.setlistId} />
-               </ul>
-                <h4>Tour:  {this.state.setlistTour}</h4>
+                 <Table celled inverted>
+                    <Table.Body>
+                      <Table.Row>
+                        <Table.Cell>
+                          <Label ribbon color="grey">Date</Label>
+                        </Table.Cell>
+                        <Table.Cell>{this.state.setlistDate}</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>
+                          <Label ribbon color="grey">Venue</Label>
+                        </Table.Cell>
+                        <Table.Cell>{this.state.setlistVenue}</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>
+                          <Label ribbon color="grey">City</Label>
+                        </Table.Cell>
+                        <Table.Cell>{this.state.city}, {this.state.state}</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>
+                          <Label ribbon color="grey">Country</Label>
+                        </Table.Cell>
+                        <Table.Cell>{this.state.country}</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>
+                          <Label ribbon color="grey">Tour</Label>
+                        </Table.Cell>
+                        <Table.Cell>{this.state.setlistTour}</Table.Cell>
+                      </Table.Row>
+                    </Table.Body>
+                  </Table>
+                  <Table celled >
+                    <Table.Header>
+                      <Table.Row>
+                        <Table.HeaderCell inverted>Songs</Table.HeaderCell>
+                      </Table.Row>
+                    </Table.Header>
+                    <Table.Body>
+                      <Table.Row>
+                        <EventSongList setlist={this.state.setlist} id={this.state.setlistId} />
+                      </Table.Row>
+                    </Table.Body>
+                  </Table>
                </Grid.Column>
                <Grid.Column width={8}>
                   {/* <Button floated="right" onClick={this.handleClick}>Save My Event</Button> */}
@@ -151,13 +188,3 @@ handleClick = (e) => {
  }
 
 export default Event
-
-
-
-{/* <Container>
-  <h2>Notes</h2>
-  <p>This was the last home show ever for our hometown band. The energy of the crowd as matched with the energy coming off the stage.
-  </p>
-  <Button class="ui primary button">Edit</Button>
-  <Button class="ui button">Remove</Button>
-</Container> */}

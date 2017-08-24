@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Container, Image, Button} from 'semantic-ui-react'
+import { Table, Container, Image, Button, Grid} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
@@ -28,10 +28,19 @@ export default class UserHome extends React.Component{
      return(
        <div>
          <Container text style={{ marginTop: '7em' }}>
-           <h1>Welcome Back to Your Music Memories</h1>
-           <p>Please click on the event you would like to view or click on the button to create a new one.</p>
-           <Button fluid={true} size='small' type='submit' primary={false} color="yellow"><Link color="white" to="/search/event">Create a New Memory</Link></Button>
-           <Table celled selectable>
+           <Grid centered columns={2}>
+             <Grid.Row>
+             <Grid.Column>
+                 <h1>Welcome Back to Your Music Memories</h1>
+                 <p>Please click on the event you would like to view or click on the button to create a new one.</p>
+                 <Button fluid={true} size='small' type='submit' primary={false} color="yellow"><Link color="white" to="/search/event">Create a New Memory</Link></Button>
+               </Grid.Column>
+               <Grid.Column textAlign="center">
+                 <Image src="https://s3.us-east-2.amazonaws.com/eventphotosvpz/MixerBoard640x392.jpeg" size="huge" centered={true} size="huge" centered={true}/>
+               </Grid.Column>
+             </Grid.Row>
+           </Grid>
+                 <Table celled selectable>
              <Table.Header>
                <Table.Row>
                  <Table.HeaderCell>Date</Table.HeaderCell>
@@ -73,11 +82,6 @@ export default class UserHome extends React.Component{
                </Table.Row>
              </Table.Body>
            </Table>
-         </Container>
-         <br></br>
-         <br></br>
-         <Container>
-           <Image src="https://s3.us-east-2.amazonaws.com/eventphotosvpz/MixerBoard640x392.jpeg" size="huge" centered={true}/>
          </Container>
        </div>
     )

@@ -1,4 +1,5 @@
  import React from 'react'
+ import {Table} from 'semantic-ui-react'
 
  class EventSong extends React.Component {
    constructor(props) {
@@ -11,7 +12,8 @@
    render() {
      return (
        <div>
-         <li>{this.props.name}</li>
+        <Table.Cell>{this.props.name}</Table.Cell>
+         {/* <li>{this.props.name}</li> */}
        </div>
      );
    }

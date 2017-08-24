@@ -1,5 +1,5 @@
  import React from 'react'
- import { Container, Button, Input, Form, TextArea } from 'semantic-ui-react'
+ import { Container, Button, Form, TextArea } from 'semantic-ui-react'
 
  class EventNote extends React.Component {
    constructor(props) {
