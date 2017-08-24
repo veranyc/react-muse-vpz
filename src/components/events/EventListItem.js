@@ -1,6 +1,7 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router-dom'
+// import Moment from 'react-moment'
 
 
  class EventListItem extends React.Component {
@@ -27,6 +28,7 @@ import { Route, Redirect } from 'react-router-dom'
 
    render() {
      return (
+      //  let dateToFormat = this.props.date
        <div>
          <Table.Row key={this.props.id} onClick={this.handleOnClick}>
            <Table.Cell>{this.props.date}</Table.Cell>

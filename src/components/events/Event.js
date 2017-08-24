@@ -3,6 +3,7 @@ import { Container, Header, Grid, Image, Button, Input} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import EventSongList from './EventSongList'
 import EventNote from './EventNote'
+import EventPicture from './EventPicture'
 
 
 
@@ -24,7 +25,8 @@ class Event extends React.Component{
       city: "",
       state: "",
       country: "",
-      eventId: ""
+      eventId: "",
+      eventSaved: false
     };
     console.log("WE ARE INSIDE CONSTRUCTOR")
   }
@@ -67,7 +69,9 @@ updatemystate = (responseData) => {
 
 handleClick = (e) => {
       console.log("Save event button clicked")
-      debugger
+      this.setState({
+        eventSaved: true
+      })
       const idUrl = this.context.router.history.location.pathname
       const setlist_id = idUrl.split("/")[idUrl.split("/").length - 1]
       console.log(setlist_id)
@@ -80,6 +84,7 @@ handleClick = (e) => {
           slfm_setlist: setlist_id
         }) //end of body obj
       })//end of fetch
+      .then(res => res.json())
       .then( res => {
         if( res.errors ){
            this.setState({
@@ -87,7 +92,7 @@ handleClick = (e) => {
            })
         } //end if
         else{
-          console.log(res)
+          console.log("This is the response" , res)
           this.setState({
             eventId: res.id,
           }) //end setState
@@ -116,42 +121,26 @@ handleClick = (e) => {
                </Grid.Column>
                <Grid.Column width={8}>
                   {/* <Button floated="right" onClick={this.handleClick}>Save My Event</Button> */}
+                  {!this.state.eventSaved ?
                   <Button fluid={true} loated="right" size='large' type='submit' onClick={this.handleClick} primary={false} color="yellow">Save My Event</Button>
+                  : null}
                   <br></br>
                   <br></br>
-                    <EventNote event={this.state.eventId} setlistID={this.state.setlistId}/>
+                  {this.state.eventSaved ?
+                    <EventNote user_id={this.props.user_id} event={this.state.eventId} setlistID={this.state.setlistId}/> : null}
                     <br></br>
                     <br></br>
                     <br></br>
                     <br></br>
-                  <Container>
-                    <h2>Pictures</h2>
-                    <p>Include your pictures by providing their URLs here:</p>
-                    <Input type='textarea' />
-                    <Button class="ui primary button">Add Picture</Button>
-                    <br></br>
-                    <br></br>
-                    <Image src='http://www.dystopiandanceparty.com/wp-content/uploads/2015/09/whitestripesmasonictemp.jpg' size='small' wrapped spaced/>
-                    <Image src='http://www.concertlivewire.com/jpegs/concerts/stripes4.jpg' size='small' spaced/>
-                    <br></br>
-                    <br></br>
-                    <form>
-                      {/* <div class="ui action input"> */}
-                        {/* <label for="event_pic">Upload Your Pictures</label> */}
-                        {/* <input type="file" id="event_pic" name="event_pic" */}
-                              {/* accept=".jpg, .jpeg, .png" value="Upload Photo"/> */}
-                        {/* <br></br> */}
-                        {/* <Button class="ui button primary">Submit</Button> */}
-                      {/* </div> */}
-                    </form>
-                        <Button class="ui button primary">View Slideshow</Button>
-                  </Container>
+                    {this.state.eventSaved ?
+                    <EventPicture event={this.state.eventId} setlistID={this.state.setlistId}/> : null}
                   <br></br>
                   <br></br>
+                  {this.state.eventSaved ?
                   <Container>
                     <h2>Coming Soon</h2>
                     <p>Attach related tweets to your event.</p>
-                  </Container>
+                  </Container> : null}
                 </Grid.Column>
              </Grid>
            </div>
