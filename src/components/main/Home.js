@@ -5,23 +5,14 @@ import Helmet from 'react-helmet'
 
 const Home = () => {
       return(
-        <div>
-          {/* <Helmet>
-            <style>{'body {background-color: #F4EAD1; }'}</style>
-            <style>{'body {background-image: url("https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicMontageLarge1920x1178.jpeg"); }'}</style>
-            <style>{'body {height: 1178px;}'}</style>
-            <style>{'body {background-attachment: fixed;}'}</style>
-            <style>{'body {background-position: center;}'}</style>
-            <style>{'body {background-repeat: no-repeat;}'}</style>
-            <style>{'body {background-size: cover;}'}</style>
-            <style>{'body {color: #F4EAD1;}'}</style>
-            <style>{'body {text-shadow: 3px 2px black;}'}</style>
-            <style>{'h1 {font-size: 250%; text-shadow: 3px 2px black;}'}</style>
-          </Helmet> */}
-          <Image src='https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicMontageLarge1920x1178.jpeg'/>
-          <Container textAlign='centered' text style={{ marginTop: '20em'}}>
-                <Header as='h1' inverted color='white' size='huge'>Welcome to Muse</Header>
-               <Image size='medium' src="https://s3.us-east-2.amazonaws.com/eventphotosvpz/flat-cycles-1299936_1280.png"/>
+        <div className='background-image'>
+
+          <Container textAlign='right' text style={{ marginTop: '20em'}}>
+                <h1 className='home-title'>Muse</h1>
+                <br></br>
+                <h4 className='home-subtitle'>Make your music memories last</h4>
+                <br></br>
+               <Image size='small' floated='right' src="https://s3.us-east-2.amazonaws.com/eventphotosvpz/flat-cycles-1299936_1280.png"/>
           </Container>
           </div>
      )

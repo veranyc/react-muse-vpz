@@ -23,3 +23,32 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.background-image {
+  background-image: url('https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicMontageLarge1920x1178.jpeg');
+  height: 100vh;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.home-title {
+  font-size:700%;
+  font-family: 'Monoton', cursive;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  color: white;
+  text-shadow: -1px 0 black, 0 5px black, 5px 0 black, 0 -1px black;
+
+}
+
+.home-subtitle {
+  font-size:250%;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 33px;
+  color: #ffd740;
+  text-shadow: -1px 0 black, 0 5px black, 5px 0 black, 0 -1px black;
+}
