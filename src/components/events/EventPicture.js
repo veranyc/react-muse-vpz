@@ -1,5 +1,5 @@
  import React from 'react'
-  import { Container, Button, Input, Image, Form, TextArea } from 'semantic-ui-react'
+  import { Container, Button, Image, Form, TextArea } from 'semantic-ui-react'
 
  class EventPicture extends React.Component {
    constructor(props) {
@@ -62,24 +62,9 @@
           </Form> : null}
           {this.state.pictureSaved ?
             <Image src={this.state.link} size='small' wrapped spaced/>
-            :  <Image src='http://www.dystopiandanceparty.com/wp-content/uploads/2015/09/whitestripesmasonictemp.jpg' size='small' wrapped spaced/>}
-           {/* <Input type='textarea' onChange={this.handleTextChange}/>
-           <Button class="ui primary button"primary={false} color="yellow">Add Picture</Button>
+            :  <Image src='https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicMontageLarge1920x1178.jpeg' size='small' wrapped spaced/>}
            <br></br>
            <br></br>
-           <Image src='http://www.dystopiandanceparty.com/wp-content/uploads/2015/09/whitestripesmasonictemp.jpg' size='small' wrapped spaced/>
-           <Image src='http://www.concertlivewire.com/jpegs/concerts/stripes4.jpg' size='small' spaced/> */}
-           <br></br>
-           <br></br>
-           {/* <form> */}
-             {/* <div class="ui action input"> */}
-               {/* <label for="event_pic">Upload Your Pictures</label> */}
-               {/* <input type="file" id="event_pic" name="event_pic" */}
-                     {/* accept=".jpg, .jpeg, .png" value="Upload Photo"/> */}
-               {/* <br></br> */}
-               {/* <Button class="ui button primary">Submit</Button> */}
-             {/* </div> */}
-           {/* </form> */}
                <Button class="ui button primary">View Slideshow</Button>
          </Container>
        </div>

@@ -1,5 +1,6 @@
  import React from 'react'
  import EventSong from './EventSong'
+ import { Table } from 'semantic-ui-react'
 
  class EventSongList extends React.Component {
    constructor(props) {
@@ -19,12 +20,6 @@
          setlistId: nextProps.id
        })
        : null
-    //  nextProps.setlist[2] ?
-    //   this.setState({
-    //     encore2: nextProps.setlist[2]
-    //     : null
-    //   })
-
    }
 
 
@@ -32,7 +27,8 @@
    render() {
      return (
        <div>
-         <ul>
+         <Table.Body>
+           <Table.Row>
            {this.state.setlist.length > 0 ?
                this.state.setlist.map((song, index) => (
                    <EventSong
@@ -40,9 +36,10 @@
                      key={index}
                    />
                  ))
-               : <li>Sorry, we do not have songs for this event</li>
+               : <p>Sorry, we do not have songs for this event</p>
              }
-         </ul>
+           </Table.Row>
+         </Table.Body>
        </div>
      );
    }

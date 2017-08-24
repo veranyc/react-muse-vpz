@@ -5,19 +5,14 @@ body {
 }
 
 .parallax {
-    /* The image used */
-    background-image: url('https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicMontageLarge1920x1178.jpeg');
-
-    /* Set a specific height */
+    background-image: url("https://s3.us-east-2.amazonaws.com/eventphotosvpz/MusicMontageLarge1920x1178.jpeg");
     height: 1178px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
 }
-
 /*.parallax {
     background-image: url('https://tau0.files.wordpress.com/2012/11/pano_ft_davis_road.jpg (2MB)
 
